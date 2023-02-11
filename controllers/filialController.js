@@ -13,7 +13,7 @@ module.exports.createFilial = async (req, res) =>{
     })
     try {
 
-        res.status(201).json({status: "Conecatdo", sucesso: true});
+        res.status(201).json({status: "Conectado", sucesso: true});
     } catch (error) {
         res.status(400).json({status: "Não conectado", erros: error});
        
