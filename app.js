@@ -12,6 +12,7 @@ app.use('/', route)
 
 
 
-app.listen(8080, ()=> 
+const PORT = 8080 || process.env.PORT
+app.listen(PORT, ()=> 
 console.log("rodando na 8080")
 )

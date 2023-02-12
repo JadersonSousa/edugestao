@@ -1,7 +1,7 @@
 const mongoose = require("../database/db");
 
 const FilialSchema = new mongoose.Schema({
-    empresaId: {
+    empresaFilialId: {
         type: mongoose.Types.ObjectId,
         ref: 'empresa',
         required: true
@@ -20,10 +20,12 @@ const FilialSchema = new mongoose.Schema({
         trim: true
     },
     cnpjUnidade: {
-        type: String
+        type: String,
+        trim: true
     },
     zonaUnidade: {
-        type: String
+        type: String,
+        trim: true
     },
     centrosCustos: [String],
     modalidadesEnsino: [String],
