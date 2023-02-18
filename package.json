@@ -4,6 +4,7 @@
   "description": "educação, controle, erp",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "keywords": [
@@ -17,8 +18,11 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
+    "jsonwebtoken": "^9.0.0",
     "moment": "^2.29.4",
+    "moment-timezone": "^0.5.40",
     "mongoose": "^5.10.13",
     "validator": "^13.7.0"
   }

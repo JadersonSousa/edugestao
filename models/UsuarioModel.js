@@ -1,6 +1,8 @@
 const mongoose = require("../database/db");
+const moment = require("moment-timezone")
+moment.tz.setDefault('America/Fortaleza')
 
-const UserSchema = new mongoose.Schema({
+const UsuarioSchema = new mongoose.Schema({
     codigoUsuario: {
         type: Number,
         default: 1,        
@@ -11,13 +13,14 @@ const UserSchema = new mongoose.Schema({
     },
     empresaUsuarioId: {
         type: mongoose.Types.ObjectId,
-        ref: 'empresa',
-        required: true
+        ref: 'empresa'
     },
     nomeCompleto: {
         type: String,
         required: true,
-        unique: true,
+        index:{
+            unique: true
+        },
         trim: true
     },
     funcao: {
@@ -33,12 +36,21 @@ const UserSchema = new mongoose.Schema({
     senha: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        select: false
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+    createdAt: {
+        type: Date,
+        default: ()=>moment.tz.ut
     }
 
 
 }, {timestamps: true})
 
-const UserModel = mongoose.model('user', UserSchema);
+const UsuarioModel = mongoose.model('ususario', UsuarioSchema);
 
-module.exports = UserModel;
+module.exports = UsuarioModel;

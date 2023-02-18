@@ -9,24 +9,25 @@ module.exports.createEmpresa = async (req, res)=>{
     const code = codigoEmp[0] == null ? 1 : codigoEmp[0].codigoEmpresa += 1;
     
     const {
-        cnpj,
-        razaoSocial,
-        nomeFantasia,
-        atividadeEmpresarial,
-        atividadeEconomica,
-        naturezaJuridica,
-        dataAbertura,
-        porte,
-        logradouro,
-        numero,
-        complemento,
-        cep,
-        bairro,
-        municipio,
-        uf,
-        email,
-        telefone,
-        polos} = req.body;
+            cnpj,
+            razaoSocial,
+            nomeFantasia,
+            atividadeEmpresarial,
+            atividadeEconomica,
+            naturezaJuridica,
+            dataAbertura,
+            porte,
+            logradouro,
+            numero,
+            complemento,
+            cep,
+            bairro,
+            municipio,
+            uf,
+            email,
+            telefone,
+            polos
+        } = req.body;
         
         const newEmpresa = await EmpresaModel({
         cnpj,
