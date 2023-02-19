@@ -3,13 +3,13 @@ const {createEmpresa, findAllEmpresas, findOneEmpresa, updateEmpresa, patchEmpre
 const {createFilial} = require("../controllers/filialController");
 const {createUsuario} = require("../controllers/usuarioController");
 const {signIn, logout} = require("../controllers/authController");
-const {checkUser} = require("../config/auth.middleware")
+const {requireAuth} = require("../config/auth.middleware")
 const route = express.Router()
 
 
 /*ROTAS DE EMPRESA*/
 route.post('/create/empresa', createEmpresa)
-route.get('/find/empresa', checkUser, findAllEmpresas)
+route.get('/find/empresa', requireAuth, findAllEmpresas)
 route.get('/findone/:id/:_id/empresa', findOneEmpresa)
 route.put('/update/:id/:_id/empresa', updateEmpresa)
 route.patch('/patch/:id/:_id/empresa', patchEmpresa)
@@ -18,7 +18,7 @@ route.delete('/delete/:id/:_id/empresa', deleteEmpresa)
 /*ROTAS DE USUARIO*/
 route.post('/create/usuario', createUsuario)
 route.post('/sign/usuario', signIn)
-route.get('/logout/usuario', logout)
+//route.get('/logout/usuario', logout)
 
 /*ROTAS DE FILIAL*/
 route.post('/create/filial', createFilial)

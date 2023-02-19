@@ -21,16 +21,11 @@ module.exports.signIn = async (req, res)=>{
         
         const token = await this.createToken(user._id);
         
-        res.cookie('jwt', token, {httpOnly: true, maxAge })
+        //res.cookie('jwt', token, {httpOnly: true, maxAge })
         res.status(200).json({user: user, token})
 
     } catch (error) {
         res.status(400).json(error)
     }
 
-}
-
-module.exports.logout = (req, res)=>{
-    res.cookie('jwt', '', {maxAge: 1});
-    res.redirect('/')
 }
