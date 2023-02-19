@@ -1,5 +1,3 @@
-
-
 module.exports.errorFormater = e =>{
     const erros = {}
     const allErros = e.substring(e.indexOf(':')+1).trim()
@@ -8,7 +6,7 @@ module.exports.errorFormater = e =>{
 
 
     allErrosArray.forEach(error => {
-        if(error.includes("bgestao.empresas")){
+        if(error.includes("test.empresas")){
             const errDupli = error.split(':').map(err=> err.trim())
             const e = errDupli[3].split('}')
             
@@ -26,10 +24,3 @@ module.exports.errorFormater = e =>{
     
     return erros
 }
-
-
-
-
-
-
-

@@ -54,6 +54,7 @@ module.exports.createEmpresa = async (req, res)=>{
         
         const empresa = await newEmpresa.save()
         res.status(201).json({status: "Conectado", sucesso: true, data: empresa});
+    
     } catch (e) {
         let error = errorFormater(e.message)
         res.status(400).json({status: "Não conectado", erros: error});
