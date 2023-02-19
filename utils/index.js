@@ -6,7 +6,7 @@ module.exports.errorFormater = e =>{
 
 
     allErrosArray.forEach(error => {
-        if(error.includes("test.empresas")){
+        if(error.includes("bgestao.empresas")){
             const errDupli = error.split(':').map(err=> err.trim())
             const e = errDupli[3].split('}')
             
