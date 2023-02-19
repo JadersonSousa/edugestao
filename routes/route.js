@@ -2,13 +2,14 @@ const express = require("express")
 const {createEmpresa, findAllEmpresas, findOneEmpresa, updateEmpresa, patchEmpresa, deleteEmpresa, error404} = require("../controllers/empresaController")
 const {createFilial} = require("../controllers/filialController");
 const {createUsuario} = require("../controllers/usuarioController");
-const {signIn, logout} = require("../controllers/authController")
+const {signIn, logout} = require("../controllers/authController");
+const {checkUser} = require("../config/auth.middleware")
 const route = express.Router()
 
 
 /*ROTAS DE EMPRESA*/
 route.post('/create/empresa', createEmpresa)
-route.get('/find/empresa', findAllEmpresas)
+route.get('/find/empresa', checkUser, findAllEmpresas)
 route.get('/findone/:id/:_id/empresa', findOneEmpresa)
 route.put('/update/:id/:_id/empresa', updateEmpresa)
 route.patch('/patch/:id/:_id/empresa', patchEmpresa)
