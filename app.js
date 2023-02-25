@@ -1,6 +1,5 @@
 const express = require("express");
 require("./database/db")
-const moment = require("moment-timezone")
 const cookieParser = require("cookie-parser");
 require("dotenv").config({path: './config/.env'});
 const route = require("./routes/route");

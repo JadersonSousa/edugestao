@@ -7,6 +7,11 @@ const {requireAuth} = require("../config/auth.middleware")
 const route = express.Router()
 
 
+/*API*/
+route.get('/', (req, res)=>{
+    res.json({status: false, message: 'No connected'})
+})
+
 /*ROTAS DE EMPRESA*/
 route.post('/create/empresa', requireAuth, createEmpresa)
 route.get('/find/empresa', requireAuth, findAllEmpresas)
