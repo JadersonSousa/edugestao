@@ -70,7 +70,8 @@ module.exports.findAllEmpresas = async (req, res) => {
         
         res.status(200).json({status: "Conectado", sucesso: true, data: getEmpresa})    
     } catch (e) {
-        res.status(400).json({status: "Não conectado", erros: e});
+        res.status(402).json({status: "Não conectado", erros: e});
+        console.log("ERROR NA FINDALLEMPRESAS ", e)
     }
 }
 
