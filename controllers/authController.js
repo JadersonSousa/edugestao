@@ -17,7 +17,7 @@ module.exports.createToken = (id) =>{
 module.exports.signIn = async (req, res)=>{
     
     const {email, senha} = req.body;
-    console.log(email, senha)
+    console.log(req.body)
     if(!email) return res.status(401).json({error: "Preencha o campo email vazio"})
     if(!senha) return res.status(401).json({error: "Preencha o campo email senha"})
     
