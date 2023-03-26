@@ -3,7 +3,7 @@ const {createEmpresa, findAllEmpresas, findOneEmpresa, updateEmpresa, patchEmpre
 const {createFilial} = require("../controllers/filialController");
 const {createUsuario} = require("../controllers/usuarioController");
 const {signIn} = require("../controllers/authController");
-const {requireAuth} = require("../config/auth.middleware")
+const {requireAuth, checkToken} = require("../config/auth.middleware")
 const route = express.Router()
 
 
@@ -23,7 +23,7 @@ route.delete('/delete/:id/:_id/empresa', requireAuth, deleteEmpresa)
 /*ROTAS DE USUARIO*/
 route.post('/create/usuario', requireAuth, createUsuario)
 route.post('/sign/usuario', signIn)
-//route.get('/logout/usuario', logout)
+route.get('/auth/verify', checkToken)
 
 /*ROTAS DE FILIAL*/
 route.post('/create/filial', requireAuth, createFilial)

@@ -41,3 +41,26 @@ module.exports.requireAuth = async (req, res, next)=>{
 
     
 }
+
+module.exports.checkToken = async (req, res)=>{
+    const sceret = process.env.TOKEN_SECRET
+    const token = req.headers.authorization;
+    
+    try {
+    
+        jwt.verify(token, sceret, async (err, decoded)=>{
+                if(err){
+                    return res.status(401).json({status: false, error: err.message == 'jwt expired' ? 'Sessão expirada' : err.message })
+                }
+            const user = await UsuarioModel.findById(decoded.id.id)
+           
+            
+            return res.status(200).json({token: decoded})
+        })
+        
+    } catch (error) {
+        console.log("erro na auth.middleware: ", error)
+    }
+
+    
+}

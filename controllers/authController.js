@@ -15,11 +15,15 @@ module.exports.createToken = (id) =>{
 
 
 module.exports.signIn = async (req, res)=>{
+    
     const {email, senha} = req.body;
+    
+    if(!email) return res.status(401).json({error: "Preencha o campo email vazio"})
+    if(!senha) return res.status(401).json({error: "Preencha o campo email senha"})
+    
     const user = await UsuarioModel.findOne({email: email, senha: senha});
-
+    if(!user) return res.status(401).json({error: "Usuário não encontrado"})
     try {
-        
         const token = await this.createToken({id: user._id});
         
         //res.cookie('jwt', token, {httpOnly: true, maxAge })
