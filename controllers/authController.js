@@ -17,7 +17,7 @@ module.exports.createToken = (id) =>{
 module.exports.signIn = async (req, res)=>{
     
     const {email, senha} = req.body;
-    console.log(req.body)
+    
     if(!email) return res.status(401).json({error: "Preencha o campo email vazio"})
     if(!senha) return res.status(401).json({error: "Preencha o campo email senha"})
     
@@ -27,7 +27,7 @@ module.exports.signIn = async (req, res)=>{
         const token = await this.createToken({id: user._id});
         
         //res.cookie('jwt', token, {httpOnly: true, maxAge })
-        res.status(200).json({user: user, token, data: req.body})
+        res.status(200).json({user: user, token})
 
     } catch (error) {
         res.status(400).json(error)
