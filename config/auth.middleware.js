@@ -55,7 +55,7 @@ module.exports.checkToken = async (req, res)=>{
             const user = await UsuarioModel.findById(decoded.id.id)
            
             
-            return res.status(200).json({token: decoded})
+            return res.status(200).json({token: decoded, status: 'sucesso'})
         })
         
     } catch (error) {
