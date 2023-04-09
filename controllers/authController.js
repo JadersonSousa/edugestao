@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 //erros
 
 
-const maxAge = 6 * 24 * 60 * 60 * 1000;
+const maxAge = 8000 //6 * 24 * 60 * 60 * 1000;
 
 //CRIAÇÃO DO TOKEN DE AUTENTICAÇÃO
 module.exports.createToken = (id) =>{
